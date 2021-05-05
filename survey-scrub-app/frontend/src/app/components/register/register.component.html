@@ -1,0 +1,95 @@
+<div class="wrapper">
+  <div class="innerContainer bg-light">
+    <div class="row surveyCardHeader">
+         <span class="cardHeader">Register for SurveyScan</span>
+    </div>
+    <hr>
+    <div class="row cardInnerText">
+      <div class="col">
+        <form #registerForm="ngForm" class="registerForm">
+          <div class="row">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" required [(ngModel)]="user.email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" class="form-control" id="InputCompany" name="company" placeholder="Company" required [(ngModel)]="user.company">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="InputFirstName" name="firstName" placeholder="First Name" required [(ngModel)]="user.firstName">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="InputLastName" name="lastName" placeholder="Last Name" required [(ngModel)]="user.lastName">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="InputPassword">Password</label>
+              <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password" required [(ngModel)]="user.password">
+            </div>
+            <div class="form-group">
+                <label for="InputPasswordCheck">Re-Enter Password</label>
+                <input type="password" class="form-control" id="InputPasswordCheck" name="passwordCheck" placeholder="Password" required [(ngModel)]="passwordCheck">
+              </div>
+            </div>
+          <div class="row">
+            <div class="form-group">
+            <label for="sector">Sector</label>
+            <select id="sector" name="sector" class="form-control" required [(ngModel)]="user.sector">
+                <option *ngFor="let sector of sectors">{{sector}}</option>
+            </select>
+            </div>
+            <div class="checkboxTC form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                I have read terms and conditions
+              </label>
+            </div>
+          </div>
+          <div class="row cardBtnRow">
+            <div class="col">
+              <button type="button" routerLink="/" class="btn btn-secondary float-left">Back</button>
+            </div>
+            <div class="col">
+              <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary float-right" (click)="register()">Submit</button>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col">
+          <span class="font-weight-bold">Terms and Conditions</span>
+          <div class="tandcBox overflow-auto">
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+              incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

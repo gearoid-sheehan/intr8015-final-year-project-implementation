@@ -1,0 +1,26 @@
+<div class="wrapper container-fluid">
+    <div class="row">
+        <div class="wrapperOne">
+            <div id="welcomeTxt" class="leftGrid">
+                <h1>Welcome to <img src="https://survey-scrub-site-images.s3-eu-west-1.amazonaws.com/survey_scan_text.png" id="logoText"></h1>
+                <p>"Data really powers everything that we do."" – Jeff Weiner. Here at SurveyScan, we are passionate about all
+                things data. And even more so, <b>Data Integrity.</b> The accuracy and consistency of survey data over its lifecycle 
+                is constantly under threat from fraudsters and dishonest end users. Compromised data, after all, is of little use to 
+                enterprises, not to mention the dangers presented by it. Choose to protect your survey ventures today.<br> 
+                <b>Choose SurveyScan.</b> </p>
+            </div>
+
+            <!-- Login section-->
+            <div class="rightGrid bg-light">
+                <h1>Login</h1>
+                <form #loginForm="ngForm" class="loginForm" (ngSubmit)="login()">
+                    <input type="email" class="form-control loginInput" name="username" placeholder="Email" required [(ngModel)]="user.email">
+                    <input type="password" class="form-control loginInput" name="password" placeholder="Password" required [(ngModel)]="user.password">
+                    <hr>
+                    <button type="button" class="btn btn-secondary" routerLink="/register">Register</button>
+                    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success float-right">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

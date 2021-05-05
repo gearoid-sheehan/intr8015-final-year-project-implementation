@@ -1,0 +1,61 @@
+.wrapper {
+    padding-top: 80px;
+}
+
+.wrapperOne {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: relative;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-top: 110px;
+}
+
+.leftGrid {
+    background-image: url('https://survey-scrub-site-images.s3-eu-west-1.amazonaws.com/abstract_background_crop.jpg');
+    background-size: cover;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.rightGrid {
+    padding: 40px;;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.loginForm {
+    padding: 10px;
+}
+
+.btn {
+    width: 150px;
+}
+
+#welcomeTxt {
+    color: white;
+    padding-top: 30px;
+}
+
+#backgroundImg {
+    //opacity: 0.8;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.loginInput {
+    margin-top: 10px;
+}
+
+.forgotPassword {
+    padding-top: 10px;
+}
+
+#logoText {
+    height: 50px;
+    width: 250px;
+}

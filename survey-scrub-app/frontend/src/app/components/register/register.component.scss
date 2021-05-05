@@ -1,0 +1,48 @@
+.wrapper {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;
+}
+
+.innerContainer {
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.cardHeader {
+    font-family: 'Raleway', sans-serif;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.cardInnerText {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    padding-left: 40px;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+.cardBtnRow {
+    padding-bottom: 40px;
+}
+
+.tandcBox {
+    height: 480px;
+    width: 600px;
+}
+
+.checkboxTC {
+    padding-left: 40px;
+    padding-top: 50px;
+}

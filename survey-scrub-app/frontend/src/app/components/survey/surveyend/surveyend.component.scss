@@ -1,0 +1,38 @@
+.wrapper {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;
+}
+
+.cardHeader {
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.innerContainer {
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+    padding-top: 150px;
+}
+
+.cardBtnRow {
+    padding: 20px;
+}
+
+#logoText {
+    height: 100px;
+    width: 500px;
+}
+
+.btmRow {
+    padding-bottom: 200px;
+}

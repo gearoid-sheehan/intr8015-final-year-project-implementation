@@ -1,0 +1,6 @@
+<div class="backgroundImg">
+    <app-navbar *ngIf="authService.loggedIn()"></app-navbar>
+    <main [@routeAnimations]="prepareRoute(outlet)" >
+        <router-outlet #outlet="outlet"></router-outlet>
+    </main>
+</div>

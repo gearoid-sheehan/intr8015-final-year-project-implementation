@@ -1,0 +1,28 @@
+<app-spinner></app-spinner>
+
+    <div class="wrapper">
+      <div class="innerContainer bg-light">
+            <div class="row surveyCardHeader">
+                <span class="cardHeader">Survey Name: {{survey.surveyName}}</span>
+            </div>
+            <hr>
+            <div class="row innerContentCard">
+            <form [formGroup]="surveyForm">
+              <div class="form-group">
+                <label class="surveyQuestion" for="question">{{currentQuestion.question}}?</label>
+                <div *ngFor="let answer of currentQuestion.answers">
+                  <label class="surveyAnswer">
+                    <input type="checkbox" [value]="answer.answer" (change)="onCheckboxChange($event)" />
+                      {{answer}}
+                  </label>
+                </div>
+              </div>
+            <div class="row cardBtnRow">
+              <div class="col">
+                <button class="btn btn-primary" type="submit" [disabled]="!surveyForm.valid" routerLink="/survey/complete/{{survey.surveyId}}/{{questionnumber}}" (click)="nextQuestion()">Next</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

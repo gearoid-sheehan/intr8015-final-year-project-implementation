@@ -1,0 +1,70 @@
+<app-spinner></app-spinner>
+
+   <div class="wrapper">
+    <ng-container *ngIf="survey">
+      <div class="innerContainer bg-light">
+        <div class="row surveyCardHeader">
+              <span class="cardHeader">Survey Name: {{survey.surveyName}}</span>
+        </div>
+        <hr>
+        <div class="row cardInnerText">
+          <div class="col">
+                <div class="row">
+                      <span class="cardInnerText font-weight-bold">Survey Description:</span>
+                      <span class="cardInnerText">{{survey.surveyDescription}}</span>
+                </div>
+                <hr>
+                <div class="row">
+                </div>
+                <div class="row">
+                </div>
+                <div class="row">
+                </div>
+                <div class="row">
+                      <span class="cardInnerText">Ends: {{survey.endDate}}</span>
+                </div>
+                <div class="row">
+                      <app-countdown [endDate]="survey.endDate"></app-countdown>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+            <!-- <div class="col">
+              <span class="font-weight-bold">Terms and Conditions</span>
+              <div class="tandcBox overflow-auto">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                  sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </span>
+              </div>
+            </div> -->
+        </div>
+        <div class="row cardBtnRow">
+            <div class="col">
+            </div>
+            <div class="col">
+              <button class="btn-success" routerLink="/survey/complete/{{survey.surveyId}}/1" (click)="beginSurvey(survey)" type="submit">Begin Survey</button>
+            </div>
+      </div>
+      </div>
+    </ng-container>
+   </div>

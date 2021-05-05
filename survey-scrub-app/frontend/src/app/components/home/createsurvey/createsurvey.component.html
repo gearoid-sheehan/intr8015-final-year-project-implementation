@@ -1,0 +1,60 @@
+<!-- Using reactive forms with these but can't get them to work properly with required field div dropdown. Not
+    allowed to use ngModel with formGroup - commented them out for now as not a major feature -->
+
+<div class="wrapper">
+  <div class="innerContainer bg-light">
+       <div class="row surveyCardHeader">
+            <span class="cardHeader">Create Survey</span>
+       </div>
+       <hr>
+       <div class="row cardInnerText">
+        <form [formGroup]="createSurveyForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="surveyName">Survey Name</label>
+                <input required id="surveyName" type="text" class="form-control" placeholder="Survey Name" formControlName="surveyName">
+                <div class="alert alert-danger" *ngIf="surveyName.touched && !surveyName.valid">Survey Name is required</div>
+              </div>
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input required id="startDate" type="date" class="form-control" placeholder="Start Date" formControlName="startDate">
+                <!--<div class="alert alert-danger" *ngIf="startDate.touched && !startDate.valid">Start Date is required</div>-->
+              </div>
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input required id="endDate" type="date" class="form-control" placeholder="End Date" formControlName="endDate">
+                <!--<div class="alert alert-danger" *ngIf="endDate.touched && !endDate.valid">End Date is required</div>-->
+              </div>
+            </div>
+  
+            <div class="col">
+              <div class="form-group">
+                <label for="surveyDescription">Survey Description</label>
+                <input required id="surveyDescription" type="text" class="form-control" placeholder="Survey Description" formControlName="surveyDescription">
+                <div class="alert alert-danger" *ngIf="surveyDescription.touched && !surveyDescription.valid">Survey Description is required</div>
+              </div>
+              <p>Please use the template available for download below. Excel files uploaded which do not adhere to the layout 
+                of the template may not process correctly.
+              </p>
+              <div class="form-group">
+                <a href="https://survey-scrub-xml-files.s3-eu-west-1.amazonaws.com/SurveyQ%26A_Template.xlsx" download>Template Download</a>
+              </div>
+              <div class="form-group">
+                <label for="fileUpload">File Upload</label><br>
+                <input required type="file" name="fileUpload" (change)="onFileSelect($event)"/>
+              </div>
+            </div>
+          </div>
+          <div class="row cardBtnRow">
+            <div class="col">
+                 <button type="button" class="btn btn-info float-left" routerLink="/home">Back</button>
+            </div>
+            <div class="col">
+                  <button type="button" class="btn btn-primary float-right" (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+        </form>
+       </div>
+  </div>
+</div>

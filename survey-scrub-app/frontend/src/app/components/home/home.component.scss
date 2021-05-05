@@ -1,0 +1,79 @@
+.topRow {
+    color: white;
+    padding-right: 140px;
+}
+
+.wrapper {
+    padding-top: 90px;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;
+}
+
+.welcomeMsg {
+    padding-left: 150px;
+    color: black;
+    margin-top: 10px;;
+}
+
+.newSurveyBtn {
+    float: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.viewSurveyBtn {
+    margin: 5px;
+}
+
+.cardHeader {
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.cardInnerText {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-circle.btn-xl { 
+    width: 70px; 
+    height: 70px; 
+    padding: 10px 16px; 
+    border-radius: 35px; 
+    font-size: 12px; 
+    text-align: center; 
+}
+
+.surveyCard {
+    padding-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.surveyCardHeader {
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-top: -0.2px;
+    border-radius: 10px 10px 0 0;
+}
+
+.innerContentCard {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.searchBox {
+    margin-left: 85px;
+}
+
+.cardBtnRow {
+    padding-top: 20px;
+}
