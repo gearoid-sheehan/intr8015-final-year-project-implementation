@@ -61,7 +61,7 @@ export class QuestioncardComponent implements OnInit {
       this.currentQuestion = this.survey.surveyQuestions[this.questionnumber-1];
 
       //Start timer for beginning of survey
-      this.startTimer()
+      this.startTimer();
 
     }, error => {
       this.alertifyService.error(error)

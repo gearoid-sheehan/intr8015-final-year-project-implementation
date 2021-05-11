@@ -1,12 +1,12 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserRegister } from '../models/userRegister';
 import { UserLogin } from '../models/userLogin';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators'
 import { Observable, ReplaySubject } from 'rxjs';
 import { AlertifyService } from './alertify.service';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private alertify: AlertifyService) { }
 
-  register(user: UserRegister) {
+  register(user: FormData) {
+    console.log(user)
     return this.http.post(this.baseUrl + '/register', user);
   }
 
@@ -35,12 +36,12 @@ export class AuthService {
       })
     );
   }
-  
+
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
   }
 
-  /* Checks for token in local storage, returns true 
+  /* Checks for token in local storage, returns true
     if token exists, false if it does not*/
 
   loggedIn() {

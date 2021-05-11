@@ -12,28 +12,33 @@
     color: white;
 }
 
-.cardHeader {
+.surveyCardHeader {
     font-family: 'Raleway', sans-serif;
     font-size: 40px;
-    padding-top: 20px;
-    padding-left: 50px;
+    padding-top: 10px;
+    padding-left: 20px;
 }
 
 .cardInnerText {
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
     padding-left: 40px;
-    padding-bottom: 5px;
+}
+
+.cardInnerTextSkull {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  padding-left: 39px;
 }
 
 .innerContentCard {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 20px;
 }
 
 .cardBtnRow {
-    padding: 40px;
+    padding: 30px;
 }
 
 .innerContainer {
@@ -52,11 +57,12 @@
 }
 
 .tabs {
-  padding: 5px;
+  padding-left: 15px;
 }
 
 .tabBtn {
-  margin: 8px;
+  margin-left: 8px;
+  margin-top: 8px;
 }
 
 .tabBtn:hover {
@@ -65,4 +71,8 @@
 
 .tabBtn:focus{
   background: #24b0e8;
+}
+
+.descriptionBox{
+  height: 100px;
 }

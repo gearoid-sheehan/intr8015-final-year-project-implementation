@@ -33,7 +33,7 @@ namespace SurveyScrubAPI.Controllers
         // Register new user account
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDto userDto)
+        public async Task<IActionResult> Register([FromForm] UserRegisterDto userDto)
         {
             userDto.Email = userDto.Email.ToLower();
             userDto.Password = userDto.Password.ToLower();

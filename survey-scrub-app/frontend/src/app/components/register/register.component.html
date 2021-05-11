@@ -6,7 +6,7 @@
     <hr>
 
     <div class="row cardInnerText">
-      <form #registerForm="ngForm" class="registerForm">
+      <form [formGroup]="registerForm" class="registerForm">
 
         <div class="row">
 
@@ -17,11 +17,13 @@
             <div class="row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="InputFirstName" name="firstName" placeholder="First Name" required [(ngModel)]="user.firstName">
+                <input type="text" class="form-control" id="InputFirstName" name="firstName" placeholder="First Name" required formControlName="inputFirstName">
+                <div class="alert alert-danger" *ngIf="inputFirstName.touched && !inputFirstName.valid">First name is required</div>
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="InputLastName" name="lastName" placeholder="Last Name" required [(ngModel)]="user.lastName">
+                <input type="text" class="form-control" id="InputLastName" name="lastName" placeholder="Last Name" required formControlName="inputLastName">
+                <div class="alert alert-danger" *ngIf="inputLastName.touched && !inputLastName.valid">Last name is required</div>
               </div>
             </div>
 
@@ -29,11 +31,13 @@
             <div class="row">
               <div class="form-group">
                 <label for="InputPassword">Password</label>
-                <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password" required [(ngModel)]="user.password">
+                <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password" required formControlName="inputPassword">
+                <div class="alert alert-danger" *ngIf="inputPassword.touched && !inputPassword.valid">Password is required</div>
               </div>
               <div class="form-group">
                   <label for="InputPasswordCheck">Re-Enter Password</label>
-                  <input type="password" class="form-control" id="InputPasswordCheck" name="passwordCheck" placeholder="Password" required [(ngModel)]="passwordCheck">
+                  <input type="password" class="form-control" id="InputPasswordCheck" name="passwordCheck" placeholder="Password" required formControlName="inputPasswordCheck">
+                  <div class="alert alert-danger" *ngIf="inputPasswordCheck.touched && !inputPasswordCheck.valid">Password is required</div>
                 </div>
               </div>
 
@@ -41,11 +45,12 @@
             <div class="row">
               <div class="form-group">
                 <label for="company">Company Name</label>
-                <input type="text" class="form-control" id="InputCompany" name="company" placeholder="Company" required [(ngModel)]="user.company">
+                <input type="text" class="form-control" id="InputCompany" name="company" placeholder="Company" required formControlName="inputCompany">
+                <div class="alert alert-danger" *ngIf="inputCompany.touched && !inputCompany.valid">Company name is required</div>
               </div>
               <div class="form-group">
                 <label for="sector">Sector</label>
-                <select id="sector" name="sector" class="form-control" required [(ngModel)]="user.sector">
+                <select id="sector" name="sector" class="form-control" required formControlName="inputSector">
                     <option *ngFor="let sector of sectors">{{sector}}</option>
                 </select>
               </div>
@@ -54,7 +59,7 @@
           </div>
 
           <!-- Second column -->
-          <div class="col">
+          <div class="col tcCol">
             <div class="col">
               <span class="font-weight-bold">Terms and Conditions</span>
               <div class="tandcBox overflow-auto">
@@ -94,8 +99,9 @@
             <div class="row">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" required [(ngModel)]="user.email">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" required formControlName="inputEmail">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <!-- <div class="alert alert-danger" *ngIf="inputEmail.touched && !inputEmail.valid">Email is required</div> -->
               </div>
             </div>
           </div>
@@ -103,24 +109,24 @@
           <div class="col">
               <div class="row float-left">
                 <div class="checkboxTC form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="acceptTerms">
                   <label class="form-check-label" for="flexCheckDefault">
                     I have read terms and conditions
                   </label>
+                  <!-- <div class="alert alert-danger" *ngIf="acceptTerms.touched && !acceptTerms.valid">Please accept the terms and conditions</div> -->
                 </div>
             </div>
           </div>
         </div>
 
-
-          <div class="row cardBtnRow">
-            <div class="col">
-              <button type="button" routerLink="/" class="btn btn-secondary float-left">Back</button>
-            </div>
-            <div class="col">
-              <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary float-right" (click)="register()">Submit</button>
-            </div>
+        <div class="row cardBtnRow">
+          <div class="col">
+            <button type="button" routerLink="/" class="btn btn-secondary float-left">Back</button>
           </div>
+          <div class="col">
+            <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary float-right" (click)="register()">Submit</button>
+          </div>
+        </div>
 
       </form>
     </div>

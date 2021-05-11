@@ -4,25 +4,14 @@
             <div class="col surveyCardHeader">
               <span class="cardHeader">{{survey.surveyName}}</span>
             </div>
-            <div class="col">
-              <ul class="nav nav-pills tabs">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-primary tabBtn" (click)="showChart('barchart')">Bar-Chart</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-primary tabBtn" (click)="showChart('piechart')">Pie-Chart</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-primary tabBtn" (click)="showChart('combo')">Combo</button>
-                </li>
-              </ul>
-            </div>
           </div>
           <hr>
           <div class="row innerContentCard">
                <div class="col">
-                    <div class="row">
-                         <span class="cardInnerText font-weight-bold">Survey Description:</span>
+                 <div class="row">
+                  <span class="cardInnerText font-weight-bold">Survey Description:</span>
+                 </div>
+                    <div class="row overflow-auto descriptionBox">
                          <span class="cardInnerText">{{survey.surveyDescription}}</span>
                     </div>
                     <hr>
@@ -30,7 +19,7 @@
                          <span class="cardInnerText font-weight-bold">Survey Statistics</span>
                     </div>
                     <div class="row">
-                         <span class="cardInnerText"><fa-icon [icon]="faSkull"></fa-icon> Fraud Rate: {{survey.fraudRate}}%</span>
+                         <span class="cardInnerTextSkull"><fa-icon [icon]="faSkull"></fa-icon> Fraud Rate: {{survey.fraudRate}}%</span>
                     </div>
                     <div class="row">
                          <span class="cardInnerText"><fa-icon [icon]="faCalendarCheck"></fa-icon> Start Date: {{survey.startDate}}</span>
@@ -45,9 +34,29 @@
                          <span class="cardInnerText"><fa-icon [icon]="faLink"></fa-icon> Hosting Link: <a href="http://localhost:4200/survey/start/{{survey.s3Filename}}" (click)="authService.logout()">
                               localhost:4200/survey/start/{{survey.s3Filename}}</a></span>
                     </div>
+
+                    <div class="row cardBtnRow">
+                      <div class="col">
+                           <button type="button" class="btn btn-info float-left" routerLink="/home">Back</button>
+                      </div>
+                      <div class="col">
+
+                      </div>
+                 </div>
                </div>
 
                <div class="col">
+                  <ul class="nav nav-pills tabs">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary tabBtn" (click)="showChart('barchart')">Bar-Chart</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary tabBtn" (click)="showChart('piechart')">Pie-Chart</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary tabBtn" (click)="showChart('combo')">Combo</button>
+                    </li>
+                  </ul>
                 <div *ngIf="isBarchart" id="chartBar">
                   <apx-chart
                     [series]="chartOptionsBar.seriesBar"
@@ -71,14 +80,6 @@
                 </div>
 
               </div>
-          </div>
-          <div class="row cardBtnRow">
-               <div class="col">
-                    <button type="button" class="btn btn-info float-left" routerLink="/home">Back</button>
-               </div>
-               <div class="col">
-
-               </div>
           </div>
      </div>
 </div>
