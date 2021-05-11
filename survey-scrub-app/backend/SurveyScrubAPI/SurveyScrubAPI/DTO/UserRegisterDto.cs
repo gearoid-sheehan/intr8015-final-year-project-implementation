@@ -15,7 +15,7 @@ namespace SurveyScrubAPI.DTO
         //[Required]
         public string Email { get; set; }
         //[Required]
-        public string CompanyName { get; set; }
+        public string Company { get; set; }
         //[Required]
         public string Sector { get; set; }
         //[Required]

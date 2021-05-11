@@ -16,7 +16,7 @@
 
 .welcomeMsg {
     padding-left: 150px;
-    color: black;
+    color: white;
     margin-top: 10px;;
 }
 
@@ -27,6 +27,7 @@
 
 .viewSurveyBtn {
     margin: 5px;
+    width: 130px;
 }
 
 .cardHeader {
@@ -44,16 +45,17 @@
     padding-bottom: 5px;
 }
 
-.btn-circle.btn-xl { 
-    width: 70px; 
-    height: 70px; 
-    padding: 10px 16px; 
-    border-radius: 35px; 
-    font-size: 12px; 
-    text-align: center; 
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
 }
 
 .surveyCard {
+    border-radius: 15px;
     padding-bottom: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
 }

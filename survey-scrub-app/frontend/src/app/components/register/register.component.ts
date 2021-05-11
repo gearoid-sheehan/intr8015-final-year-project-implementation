@@ -11,33 +11,31 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   passwordCheck: string;
   userLogin: UserLogin = {email: '', password: ''};
-  
+
   user: UserRegister = {firstName: '', lastName: '', email: '', company: '', sector: '', password: ''};
-  sectors: any [] = ['Information Technology', 'Health Care', 'Financials', 
-                        'Consumer Discretionary', 'Communication Services', 
-                        'Industrials', 'Consumer Staples', 'Energy', 
+  sectors: any [] = ['Information Technology', 'Health Care', 'Financials',
+                        'Consumer Discretionary', 'Communication Services',
+                        'Industrials', 'Consumer Staples', 'Energy',
                         'Utilities', 'Real Estate', 'Materials'];
 
   constructor(private authService: AuthService, private alertifyService: AlertifyService, private router: Router) { }
 
-  ngOnInit() {
-  }
-
   register() {
+
     if (this.passwordCheck == this.user.password) {
       this.authService.register(this.user).subscribe(next => {
-        
+
         this.userLogin.email = this.user.email;
         this.userLogin.password = this.user.password;
 
         this.alertifyService.success('Registration Successful');
 
         this.login();
-        
+
       }, error => {
         this.alertifyService.error('Registration failed. Please try again.');
       });
@@ -48,7 +46,7 @@ export class RegisterComponent implements OnInit {
   }
 
 login() {
-  
+
     this.authService.login(this.userLogin).subscribe(next => {
       this.alertifyService.success('Login Successful');
       this.router.navigate(['/home']);

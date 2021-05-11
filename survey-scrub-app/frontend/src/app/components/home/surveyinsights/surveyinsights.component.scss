@@ -37,10 +37,32 @@
 }
 
 .innerContainer {
+    border-radius: 15px;
     margin: 0 auto;
     margin-top: 80px;
     margin-left: 100px;
     margin-right: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
     margin-top: 120px;
+}
+
+.tabRow {
+  padding-left: 70px;
+  padding-right: 20px;
+}
+
+.tabs {
+  padding: 5px;
+}
+
+.tabBtn {
+  margin: 8px;
+}
+
+.tabBtn:hover {
+  color: white !important;
+}
+
+.tabBtn:focus{
+  background: #24b0e8;
 }

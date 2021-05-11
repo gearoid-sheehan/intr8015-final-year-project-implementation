@@ -12,7 +12,7 @@
                 <label class="surveyQuestion" for="question">{{currentQuestion.question}}?</label>
                 <div *ngFor="let answer of currentQuestion.answers">
                   <label class="surveyAnswer">
-                    <input type="checkbox" [value]="answer.answer" (change)="onCheckboxChange($event)" />
+                    <input type="checkbox" [value]="answer" (change)="onCheckboxChange($event)" />
                       {{answer}}
                   </label>
                 </div>

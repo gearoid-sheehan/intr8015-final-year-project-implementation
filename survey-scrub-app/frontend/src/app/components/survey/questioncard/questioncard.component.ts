@@ -35,8 +35,8 @@ export class QuestioncardComponent implements OnInit {
   display;
   interval;
 
-  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService, 
-              private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { 
+  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService,
+              private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) {
 
                 this.surveyForm = this.formBuilder.group({
                   answer: this.formBuilder.array([], [Validators.required])
@@ -47,19 +47,19 @@ export class QuestioncardComponent implements OnInit {
 
     this.subscription = this.surveyService.currentSurvey.subscribe(survey => {
 
-    // If Response comes function hideloader() is called 
-       if (Response) { 
-         this.hideloader(); 
+    // If Response comes function hideloader() is called
+       if (Response) {
+         this.hideloader();
        }
 
       this.survey = survey;
 
       this.completedSurvey.surveyName = this.survey.surveyName;
       this.completedSurvey.surveyID = this.survey.surveyId;
-      this.completedSurvey.surveyDate = new Date;
-  
+      this.completedSurvey.surveyDate = new Date();
+
       this.currentQuestion = this.survey.surveyQuestions[this.questionnumber-1];
-      
+
       //Start timer for beginning of survey
       this.startTimer()
 
@@ -69,9 +69,8 @@ export class QuestioncardComponent implements OnInit {
   }
 
   onCheckboxChange(e) {
-
     const answer: FormArray = this.surveyForm.get('answer') as FormArray;
-    
+
     if (e.target.checked) {
       answer.push(new FormControl(e.target.value));
     } else {
@@ -84,15 +83,14 @@ export class QuestioncardComponent implements OnInit {
 
     this.pauseTimer();
 
-    var surveyQuestion: SurveyQuestion = {question: '', answer: '', questionWordCount: 0, time: 0, placing: 1};
+    var surveyQuestion: SurveyQuestion = {question: '', answer: '', questionWordCount: 0, time: 0, placing: 1, datetime: null};
 
-    const answer = this.surveyForm.get('answer.' + this.index.toString()).value; 
-    console.log(answer);
+    const answer = this.surveyForm.get('answer.' + this.index.toString()).value;
 
     this.index++;
 
+    surveyQuestion.datetime = new Date();
     surveyQuestion.question = this.currentQuestion.question;
-    console.log(surveyQuestion.question)
     surveyQuestion.time = this.time;
     surveyQuestion.answer = answer;
     surveyQuestion.placing = this.index;
@@ -107,7 +105,7 @@ export class QuestioncardComponent implements OnInit {
 
       console.log(this.completedSurvey)
       this.surveyService.sendSurvey(this.completedSurvey).subscribe(response => {
-        
+
        }, error => {
          this.alertifyService.error(error)
       });
@@ -139,9 +137,9 @@ export class QuestioncardComponent implements OnInit {
     clearInterval(this.interval);
   }
 
-  hideloader() { 
-    // Setting display of spinner element to none 
+  hideloader() {
+    // Setting display of spinner element to none
     var spinner = document.getElementsByTagName('APP-SPINNER');
     while (spinner[0]) spinner[0].parentNode.removeChild(spinner[0]);
-  } 
+  }
 }

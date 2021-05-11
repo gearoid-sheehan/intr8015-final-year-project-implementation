@@ -26,7 +26,6 @@ export class SurveyService {
   }
 
   getAllSurveys(companyId) {
-    console.log(typeof(companyId))
     return this.http.get(this.baseUrl + '/getallsurveys/' + companyId);
   }
 
@@ -44,7 +43,7 @@ export class SurveyService {
     console.log(surveyid)
     return this.http.get(this.baseUrl + '/deletesurvey/' + surveyid);
   }
-  
+
   getSurvey(surveyid) {
     return this.http.get(this.baseUrl + '/getsurvey/' + surveyid);
   }

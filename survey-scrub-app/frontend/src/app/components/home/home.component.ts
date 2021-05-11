@@ -28,8 +28,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   survey: any;
   subscription: Subscription;
 
-  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService, 
-              private authService: AuthService) { }
+  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService,
+              private authService: AuthService, private modalService: NgbModal, private router: Router) { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -45,9 +45,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.surveyService.getAllSurveys(this.user.companyId).subscribe(data => {
       this.surveys = data;
-      this.surveys.forEach( (element) => {
-        //element.startDate = this.survey.startDate.slice(0, -9);
-        //element.endDate = this.survey.endDate.slice(0, -9);
+      console.log(this.surveys)
+      this.surveys.forEach((element) => {
+
+        element.startDate = new Date(element.startDate)
+        element.startDate = element.startDate.getFullYear()+'-'+(element.startDate.getMonth()+1)+'-'+ element.startDate.getDate();
+
+        element.endDate = new Date(element.endDate)
+        element.endDate = element.endDate.getFullYear()+'-'+(element.endDate.getMonth()+1)+'-'+ element.endDate.getDate();
     });
 
     }, error => {
@@ -58,5 +63,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   viewSurveyInsights(survey) {
     this.surveyService.loadSurvey(survey);
+  }
+
+  confirmDeleteModal(content, survey) {
+    this.survey = survey;
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  }
+
+  deleteSurvey() {
+    this.surveyService.deleteSurvey(this.survey.instanceId).subscribe(data => {
+
+      this.router.navigate(['/home']);
+      this.alertifyService.success("Survey Deleted");
+    }, error => {
+      this.alertifyService.error("Failed to Delete Survey");
+    });
   }
 }

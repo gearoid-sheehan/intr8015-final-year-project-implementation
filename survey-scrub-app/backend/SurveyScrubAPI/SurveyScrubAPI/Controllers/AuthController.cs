@@ -50,7 +50,7 @@ namespace SurveyScrubAPI.Controllers
                 newUser.FirstName = userDto.FirstName;
                 newUser.LastName = userDto.LastName;
                 newUser.Email = userDto.Email;
-                newUser.CompanyName = userDto.CompanyName;
+                newUser.CompanyName = userDto.Company;
                 newUser.Sector = userDto.Sector;
                 newUser.CompanyId = Guid.NewGuid();
 

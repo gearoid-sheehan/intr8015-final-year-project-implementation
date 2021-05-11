@@ -3,13 +3,19 @@
 }
 
 .navbar {
-    background-color: #0763c6;
+    background-color: black;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 50px;
   }
 
-#logoText {
+#logoIcon {
     height: 50px;
-    width: 250px;
+    width: 50px;
+}
+
+#logoText {
+  padding-left: 10px;
+  height: 50px;
+  width: 120px;
 }
