@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { SurveyService } from 'src/app/services/survey.service';
@@ -14,22 +15,30 @@ export class SurveyComponent implements OnInit {
 
   public surveyid: string;
   survey: any;
-  
-  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService, private route: ActivatedRoute) { }
+
+  tcForm: FormGroup;
+
+  constructor(private surveyService: SurveyService, private alertifyService: AlertifyService,
+              private route: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.tcForm = this.formBuilder.group({
+      acceptTerms: [false,
+        Validators.requiredTrue]
+    })
 
     //Retrieves surveyid from the given url
     this.surveyid = this.route.snapshot.paramMap.get("surveyid");
 
     this.surveyService.getSurvey(this.surveyid).subscribe(Response => {
 
-      // If Response comes function hideloader() is called 
-      if (Response) { 
-        this.hideloader(); 
+      // If Response comes function hideloader() is called
+      if (Response) {
+        this.hideloader();
       }
-    
-      this.survey = Response; 
+
+      this.survey = Response;
       this.dataDisplay = this.survey.data;
       this.survey = Response;
 
@@ -38,13 +47,17 @@ export class SurveyComponent implements OnInit {
       });
   }
 
+  get acceptTerms() {
+    return this.tcForm.get('acceptTerms')
+  }
+
   beginSurvey(survey) {
     this.surveyService.loadSurvey(survey);
   }
 
-  hideloader() { 
-    // Setting display of spinner element to none 
+  hideloader() {
+    // Setting display of spinner element to none
     var spinner = document.getElementsByTagName('APP-SPINNER');
     while (spinner[0]) spinner[0].parentNode.removeChild(spinner[0]);
-  } 
+  }
 }

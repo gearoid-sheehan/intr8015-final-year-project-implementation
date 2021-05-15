@@ -4,9 +4,7 @@ import { UserLogin } from '../models/userLogin';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators'
-import { Observable, ReplaySubject } from 'rxjs';
-import { AlertifyService } from './alertify.service';
-import { FormGroup } from '@angular/forms';
+import { ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +16,9 @@ export class AuthService {
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private http: HttpClient, private alertify: AlertifyService) { }
+  constructor(private http: HttpClient) { }
 
   register(user: FormData) {
-    console.log(user)
     return this.http.post(this.baseUrl + '/register', user);
   }
 

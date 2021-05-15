@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.surveyService.getAllSurveys(this.user.companyId).subscribe(data => {
       this.surveys = data;
-      console.log(this.surveys)
       this.surveys.forEach((element) => {
 
         element.startDate = new Date(element.startDate)

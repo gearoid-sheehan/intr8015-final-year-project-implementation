@@ -15,5 +15,6 @@ namespace SurveyScrubAPI.Repositories.Interfaces
         Task<Survey> DeleteSurvey(Guid surveyId);
         Task<int> SaveSurveyResults(SurveyResults surveyResults);
         Task<int> SaveSurveyQuestionResults(SurveyQuestionResults surveyResults);
+        Task<IEnumerable<SurveyQuestionResults>> GetChartData(Guid surveyId);
     }
 }

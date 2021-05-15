@@ -35,12 +35,15 @@ export class SurveyService {
     this.surveySource.next(survey);
   }
 
+  getChartData(surveyid) {
+    return this.http.get(this.baseUrl + '/surveychartdata/' + surveyid);
+  }
+
   surveyGet() {
     return this.surveySource;
   }
 
   deleteSurvey(surveyid) {
-    console.log(surveyid)
     return this.http.get(this.baseUrl + '/deletesurvey/' + surveyid);
   }
 

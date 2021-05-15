@@ -14,6 +14,7 @@ namespace SurveyScrubAPI.Models
         public string SurveyName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public int AllowedFraudRate { get; set; }
         public Guid S3Filename { get; set; }
         public string SurveyDescription { get; set; }
         public int FraudRate { get; set; }

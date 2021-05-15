@@ -28,6 +28,10 @@
     <Compile Include="Migrations\20210505001928_SurveyRes.Designer.cs" />
     <Compile Include="Migrations\20210505004850_SurveyIdRes.cs" />
     <Compile Include="Migrations\20210505004850_SurveyIdRes.Designer.cs" />
+    <Compile Include="Migrations\20210514203742_AllowedFraudRate.cs" />
+    <Compile Include="Migrations\20210514203742_AllowedFraudRate.Designer.cs" />
+    <Compile Include="Migrations\20210514204425_AllowedFraudRateTwo.cs" />
+    <Compile Include="Migrations\20210514204425_AllowedFraudRateTwo.Designer.cs" />
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
   </ItemGroup>
 

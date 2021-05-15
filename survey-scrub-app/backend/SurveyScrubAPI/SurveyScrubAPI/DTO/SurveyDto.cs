@@ -13,6 +13,7 @@ namespace SurveyScrubAPI.DTO
         public DateTime endDate { get; set; }
         public bool isProtected { get; set; }
         public IFormFile file { get; set; }
+        public int allowedFraudRate { get; set; }
         public string companyId { get; set; }
         public string surveyDescription { get; set; }
     }

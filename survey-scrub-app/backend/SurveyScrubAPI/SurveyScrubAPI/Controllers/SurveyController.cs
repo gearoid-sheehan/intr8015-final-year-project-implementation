@@ -62,5 +62,13 @@ namespace SurveyScrubAPI.Controllers
             await _surveyRepository.DeleteSurvey(surveyId);
             return Ok();
         }
+
+        // Get chart data
+        [HttpGet("surveychartdata/{surveyid}")]
+        public async Task<StackedChartData> GetChartData(Guid surveyId)
+        {
+            var chartData = await _surveyService.GetChartData(surveyId);
+            return chartData;
+        }
     }
 }

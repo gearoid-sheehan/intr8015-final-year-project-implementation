@@ -14,7 +14,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using static SurveyScrubAPI.DTO.AnsweredQuestions;
 using static SurveyScrubAPI.DTO.CompletedSurveyDto;
+using static SurveyScrubAPI.DTO.StackedChartData;
 
 namespace SurveyScrubAPI.Services.Concrete_Classes
 {
@@ -40,6 +42,7 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
                 EndDate = surveyDto.endDate,
                 S3Filename = S3FilenameGuid,
                 CompanyId = new Guid(surveyDto.companyId),
+                AllowedFraudRate = surveyDto.allowedFraudRate,
                 SurveyDescription = surveyDto.surveyDescription
             };
 
@@ -159,8 +162,11 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
             client.DefaultRequestHeaders.Add("Api-Key", "xxxyyyzzz");
 
             //cache
-            CacheControlHeaderValue cacheControl = new CacheControlHeaderValue();
-            cacheControl.NoCache = true;
+            CacheControlHeaderValue cacheControl = new CacheControlHeaderValue
+            {
+                NoCache = true
+            };
+
             client.DefaultRequestHeaders.CacheControl = cacheControl;
 
             byte[] bytes = stream.ToArray();
@@ -180,19 +186,18 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
                 processedQuestions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ProcessedQuestions>>(responseJSONString);
 
             }
+
             catch (Exception ex)
             {
                 string message = ex.Message;
                 Console.WriteLine(message); ;
             }
-            finally
-            {
-                Console.WriteLine("Error");
-            }
 
             int count = 0;
             int fraudCount = 0;
             bool isSurveyFraud = false;
+
+            int fraudPercentage = 0;
 
             Guid completionInstance = Guid.NewGuid();
 
@@ -223,7 +228,7 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
                 await _surveyRepository.SaveSurveyQuestionResults(surveyQuestionResults);
             }
 
-            if (fraudCount > count/2)
+            if (fraudCount > count/fraudPercentage)
             {
                 isSurveyFraud = true;
             }
@@ -240,6 +245,71 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
 
             QuestionsDto surveyQuestions = new QuestionsDto();
             return surveyQuestions;
+        }
+
+        public async Task<StackedChartData> GetChartData(Guid surveyId)
+        {
+            var surveyQuestionResults = await _surveyRepository.GetChartData(surveyId);
+
+            //var survey =  GetSurvey(surveyId).Result;
+
+            List<AnsweredQuestions> listAnsweredQuestions = new List<AnsweredQuestions>();
+
+            StackedChartData stackedChartData = new StackedChartData();
+            List<string> catagories = new List<string>();
+
+            //int catagoryCount = 0;
+
+            //foreach (var question in survey.surveyQuestions)
+            //{
+            //    AnsweredQuestions answeredQuestions = new AnsweredQuestions();
+            //    List<CountedAnswers> counts = new List<CountedAnswers>();
+            //    answeredQuestions.question = question.question;
+
+            //    List<BarData> barDataList = new List<BarData>();
+            //    List<int> data = new List<int>();
+
+            //    foreach (var answer in question.answers)
+            //    {
+            //        CountedAnswers countedAnswers = new CountedAnswers();
+            //        countedAnswers.answer = answer;
+            //        countedAnswers.count = 0;
+
+            //        BarData barData = new BarData();
+
+            //        barData.answer = answer;
+
+            //        foreach (var surveyResults in surveyQuestionResults)
+            //        {
+            //            if (surveyResults.Answer == countedAnswers.answer)
+            //            {
+            //                countedAnswers.count++;
+            //            }
+            //        }
+
+            //        counts.Add(countedAnswers);
+            //        data.Add(countedAnswers.count);
+
+            //        barData.data = data;
+            //        barDataList.Add(barData);
+
+            //    }
+
+            //    answeredQuestions.countedAnswers = counts;
+
+            //    listAnsweredQuestions.Add(answeredQuestions);
+
+            //    stackedChartData.barData = barDataList;
+
+            //    catagoryCount++;
+
+            //    catagories.Add("Question " + catagoryCount.ToString());
+                
+            //}
+
+            //stackedChartData.catagories = catagories;
+
+            return stackedChartData;
         }
     }
 }

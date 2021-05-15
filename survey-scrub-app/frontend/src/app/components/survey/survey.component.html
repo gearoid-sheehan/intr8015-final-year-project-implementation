@@ -15,10 +15,7 @@
                       <span>{{survey.surveyDescription}}</span>
                     </div>
                 </div>
-                <div class="row">
-                      <span class="cardInnerText">Ends: {{survey.endDate}}</span>
-                </div>
-                <div class="row">
+                <div class="row countDownRow">
                       <app-countdown [endDate]="survey.endDate"></app-countdown>
                 </div>
                 <div class="row">
@@ -55,18 +52,18 @@
               </div>
 
               <div class="row">
-                <div class="col">
-                  <div class="checkboxTC form-check">
+                <div class="col-8 checkboxCol">
+                  <div class="checkboxTC form-check" [formGroup]="tcForm">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="acceptTerms">
                     <label class="form-check-label" for="flexCheckDefault">
                       I have read terms and conditions
                     </label>
-                    <!-- <div class="alert alert-danger" *ngIf="acceptTerms.touched && !acceptTerms.valid">Please accept the terms and conditions</div> -->
+                    <div class="alert alert-danger" *ngIf="acceptTerms.touched && !acceptTerms.valid">Please accept the terms and conditions</div>
                   </div>
                 </div>
 
-                <div class="col">
-                  <button class="btn btn-success float-right" routerLink="/survey/complete/{{survey.surveyId}}/1" (click)="beginSurvey(survey)" type="submit">Begin Survey</button>
+                <div class="col-4 successBtnCol">
+                  <button [disabled]="!tcForm.valid" class="btn btn-success float-right" routerLink="/survey/complete/{{survey.surveyId}}/1" (click)="beginSurvey(survey)" type="submit">Begin Survey</button>
                 </div>
 
               </div>

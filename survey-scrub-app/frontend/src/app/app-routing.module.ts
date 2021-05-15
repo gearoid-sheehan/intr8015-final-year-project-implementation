@@ -14,7 +14,6 @@ import { SurveyendComponent } from './components/survey/surveyend/surveyend.comp
 
 const routes: Routes = [
   { path: '', component: LoginComponent , data: { animation: 'isRight' }},
-  { path: 'aboutus', component: AboutUsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, data: { animation: 'isRight' }, canActivate: [AuthGuard]},
   { path: 'createsurvey', component: CreatesurveyComponent, data: { animation: 'isRight' }, canActivate: [AuthGuard]},

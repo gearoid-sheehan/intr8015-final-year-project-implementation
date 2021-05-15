@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
 
 import {
   ApexAxisChartSeries,
@@ -58,6 +59,8 @@ export class SurveyinsightsComponent implements OnInit {
   faLink = faLink;
 
   survey: any;
+  chartData: any;
+  seriesArray: any;
 
   isBarchart = false;
   isPiechart = false;
@@ -70,29 +73,39 @@ export class SurveyinsightsComponent implements OnInit {
     this.surveyService.surveyGet()
       .subscribe((property) => {
         this.survey = property;
+        this.survey.surveyURL = environment.surveyURL + '/survey/start/' + this.survey.s3Filename;
       })
 
+    this.getChartData();
     this.showChart('barchart');
+  }
+
+  getChartData() {
+
+    this.surveyService.getChartData("8677265b-e4b7-4561-9afa-3eb961665c0a").subscribe(data => {
+      this.chartData = data;
+    });
   }
 
   private initializeChartOptionsBarchart() {
 
+    this.seriesArray
     this.chartOptionsBar = {
       seriesBar: [
         {
-          name: "PRODUCT A",
+          name: "Answer One",
           data: [44, 55, 41, 67, 22, 43]
         },
         {
-          name: "PRODUCT B",
+          name: "Answer Two",
           data: [13, 23, 20, 8, 13, 27]
         },
         {
-          name: "PRODUCT C",
+          name: "Answer Three",
           data: [11, 17, 15, 15, 21, 14]
         },
         {
-          name: "PRODUCT D",
+          name: "Answer Four",
           data: [21, 7, 25, 13, 22, 8]
         }
       ],
@@ -127,12 +140,13 @@ export class SurveyinsightsComponent implements OnInit {
       xaxis: {
         type: "category",
         categories: [
-          "01/2011",
-          "02/2011",
-          "03/2011",
-          "04/2011",
-          "05/2011",
-          "06/2011"
+          "Question One",
+          "Question Two",
+          "Question Three",
+          "Question Four",
+          "Question Five",
+          "Question Six",
+          "Question Seven"
         ]
       },
       legend: {

@@ -31,7 +31,7 @@
                          <app-countdown [endDate]="survey.endDate"></app-countdown>
                     </div>
                     <div class="row">
-                         <span class="cardInnerText"><fa-icon [icon]="faLink"></fa-icon> Hosting Link: <a href="http://localhost:4200/survey/start/{{survey.s3Filename}}" (click)="authService.logout()">
+                         <span class="cardInnerText"><fa-icon [icon]="faLink"></fa-icon> Hosting Link: <a href={{survey.surveyURL}} (click)="authService.logout()">
                               localhost:4200/survey/start/{{survey.s3Filename}}</a></span>
                     </div>
 

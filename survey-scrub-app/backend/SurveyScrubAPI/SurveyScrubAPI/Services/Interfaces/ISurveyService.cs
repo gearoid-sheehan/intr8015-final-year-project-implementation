@@ -14,5 +14,6 @@ namespace SurveyScrubAPI.Services.Interfaces
         Task<IEnumerable<Survey>> GetAllSurveys(Guid companyId);
         Task<QuestionsDto> GetSurvey(Guid companyId);
         Task<QuestionsDto> PostSurvey(CompletedSurveyDto completedSurvey);
+        Task<StackedChartData> GetChartData(Guid surveyId);
     }
 }

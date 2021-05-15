@@ -73,5 +73,12 @@ namespace SurveyScrubAPI.Repositories.Concrete_Classes
 
             return await _dataContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<SurveyQuestionResults>> GetChartData(Guid surveyId)
+        {
+            var answers = await _dataContext.SurveyQuestionResults.Where(x => x.SurveyId == surveyId).ToListAsync();
+
+            return answers;
+        }
     }
 }

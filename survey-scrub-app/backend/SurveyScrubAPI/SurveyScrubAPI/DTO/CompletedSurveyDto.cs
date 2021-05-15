@@ -9,6 +9,7 @@ namespace SurveyScrubAPI.DTO
     {
         public Guid surveyId { get; set; }
         public DateTime surveyDate { get; set; }
+        public int allowedFraudRate { get; set; }
         public string surveyName { get; set; }
         public List<CompletedQuestions> surveyQuestions { get; set; }
 
