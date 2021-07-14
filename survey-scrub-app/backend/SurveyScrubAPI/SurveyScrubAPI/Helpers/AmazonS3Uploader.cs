@@ -16,7 +16,7 @@ namespace SurveyScrubAPI.Helpers
     {
         public async Task UploadFileAsync(IFormFile file, string newFilename)
         {
-            var credentials = new BasicAWSCredentials("AKIAIRQ7TSVMGCEGJDNQ", "uFxYkrrGjIc5ni334omoBs1SJ6rTOi+PtguQ6NlE");
+            //var credentials = new BasicAWSCredentials("AKIAIRQ7TSVMGCEGJDNQ", "uFxYkrrGjIc5ni334omoBs1SJ6rTOi+PtguQ6NlE");
             var config = new AmazonS3Config
             {
                 RegionEndpoint = Amazon.RegionEndpoint.EUWest1
@@ -51,7 +51,7 @@ namespace SurveyScrubAPI.Helpers
                     Key = surveyid
                 };
 
-                var credentials = new BasicAWSCredentials("AKIAIRQ7TSVMGCEGJDNQ", "uFxYkrrGjIc5ni334omoBs1SJ6rTOi+PtguQ6NlE");
+                //var credentials = new BasicAWSCredentials("AKIAIRQ7TSVMGCEGJDNQ", "uFxYkrrGjIc5ni334omoBs1SJ6rTOi+PtguQ6NlE");
                 var config = new AmazonS3Config
                 {
                     RegionEndpoint = Amazon.RegionEndpoint.EUWest1

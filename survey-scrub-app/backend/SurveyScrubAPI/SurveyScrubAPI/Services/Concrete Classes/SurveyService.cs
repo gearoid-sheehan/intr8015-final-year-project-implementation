@@ -251,7 +251,7 @@ namespace SurveyScrubAPI.Services.Concrete_Classes
         {
             var surveyQuestionResults = await _surveyRepository.GetChartData(surveyId);
 
-            //var survey =  GetSurvey(surveyId).Result;
+            var survey =  GetSurvey(surveyId).Result;
 
             List<AnsweredQuestions> listAnsweredQuestions = new List<AnsweredQuestions>();
 
